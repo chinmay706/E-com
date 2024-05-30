@@ -1,0 +1,84 @@
+#footer{
+    width: 100vw;
+ 
+    align-items: center ;
+    justify-content: space-between;
+ 
+    background-color: rgba(59, 58, 58, 0.788);
+    margin-top: 26vmax;
+    padding: 2vmax;
+    outline: none;
+    overflow: hidden;
+}
+.leftFooter{
+    width: 20%;
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1vmax;
+
+}
+.leftFooter > h4{
+    text-align: center;
+    font-family: "Roboto";
+}
+.leftFooter > p{
+    text-align: center;
+    font: bold;
+    font-size:1.4vmax ;
+}
+.leftFooter > img{
+    width: 10vmax;
+    cursor: pointer;
+    text-align: center;
+    
+
+
+}
+.midFooter{
+    width: 60%;
+    text-align: center;
+   
+}
+.midFooter > h1{
+    font-size: 4vmax;
+    
+    font-family: "Roboto";
+    color:  #eb4034;
+
+}
+.midFooter > p{
+    max-width: 60%;
+    font-size: 1vmax;
+    margin: 1vmax auto;
+    text-align: center;
+    font: bold;
+    font-size:1.4vmax ;
+}
+
+.rightFooter{
+    display: flex;
+    gap: 10px;
+    width: 20%;
+    flex-direction: column;
+    align-items: center;
+}
+.rightFooter h4{
+    font-size: 1.5vmax;
+    font-family: "Roboto";
+    text-decoration: underline;
+
+}
+.rightFooter > a{
+     
+    text-decoration: none;
+    font-size: 1.3vmax;
+transition: all 0.5s;
+    font-weight: 500;
+    color: black;
+}
+
+.rightFooter > a:hover{
+    color: #eb4034;
+}

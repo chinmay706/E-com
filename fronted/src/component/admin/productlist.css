@@ -1,0 +1,18 @@
+.productListTable div {
+    font: 300 1vmax "Roboto"; 
+    color: rgba(0,0,0,0.678);
+    border: none !important;
+     
+}
+
+.MuiDataGrid-columnHeader div{
+    color: white;
+}
+
+
+@media screen and (max-width:678px) {
+    .productListTable div{
+        font: 400 4vw "Roboto";
+    }
+    
+}

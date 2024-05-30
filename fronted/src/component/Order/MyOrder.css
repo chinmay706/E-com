@@ -1,0 +1,45 @@
+.myorderTable div{
+    font: 300 1vmax "Roboto";
+    border: none;
+}
+
+.myorderTable a {
+    color: rgba(0,0,0,0.527);
+    transition: all 0.5s; 
+    padding-right: 15px;
+    
+}
+
+.myorderTable a:hover{
+    color:tomato
+
+}
+
+.MuiDataGrid-columnHeader{
+    background-color: tomato;
+    padding: 1vmax !important;
+
+}
+.MuiDataGrid-columnHeader div{
+    color: white;
+    font: 500 1.1vmax "Roboto" !important;
+}
+
+.MuiDataGrid-iconSeparator{
+    display: none !important;
+}
+
+@media screen and (max-width:768px) {
+    .myorderTable div{
+        font: 300 4vw "Roboto";
+    }
+
+    .MuiDataGrid-columnHeader{
+        padding: 20px !important;
+
+    }
+    .MuiDataGrid-columnHeader div{
+        font: 500 5vw "Roboto" !important;
+    }
+    
+}

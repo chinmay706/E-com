@@ -1,0 +1,6 @@
+.image{
+    background-image: url("../../images/cover.jfif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
