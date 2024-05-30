@@ -1,6 +1,6 @@
 [build]
-  command = "npm run build --prefix fronted"
-  publish = "fronted/build"
+  command = "npm install --legacy-peer-deps && npm run build --prefix frontend"
+  publish = "frontend/build"
 
 [[redirects]]
   from = "/*"
