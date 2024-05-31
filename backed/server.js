@@ -14,7 +14,7 @@ process.on('uncaughtException', (err) => {
     process.exit(1);
 });
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "https://mern-stack-ecommerce-bh7z.onrender.com"
+
 // Config
 if (process.env.NODE_ENV !== 'PRODUCTION') {
     dotenv.config({ path: './config/.env' });
@@ -31,16 +31,12 @@ cloudinary.config({
 });
 
 // Enable CORS
-// app.use(cors({
-//     origin: 'https://kaleidoscopic-alfajores-22ce37.netlify.app', // Allow your local frontend to access the backend
-//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//     credentials: true,
-// }));
 app.use(cors({
-    origin: 'http://localhost:3000', // Allow your local frontend to access the backend
+    origin: 'https://kaleidoscopic-alfajores-22ce37.netlify.app', // Allow your local frontend to access the backend
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 }));
+ 
 
 app.options('*', cors());
 
