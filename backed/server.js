@@ -40,11 +40,7 @@ app.use(cors({
 
 app.options('*', cors());
 
-// Define routes
-app.post('/api/v1/login', (req, res) => {
-    // Your login logic here
-    res.status(200).json({ success: true, message: 'Login successful' });
-});
+ 
 
 // Start the Server
 const server = app.listen(process.env.PORT, () => {
