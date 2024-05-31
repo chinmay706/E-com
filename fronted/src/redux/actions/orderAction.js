@@ -20,8 +20,9 @@ import {
   MY_ORDERS_SUCCESS,
 } from "../constants/orderConstant";
 
-import axios from "axios";
 
+import axios from "axios";
+const backedurl = "https://mern-stack-ecommerce-bh7z.onrender.com"
 export const createOrder = (order) => async (dispatch ) => {
   try {
     dispatch({ type: CREATE_ORDER_REQUEST });
@@ -30,7 +31,7 @@ export const createOrder = (order) => async (dispatch ) => {
         "Content-Type": "application/json",
       },
     };
-    const { data } = await axios.post("/api/v1/order/new", order, config);
+    const { data } = await axios.post(`${backedurl}/api/v1/order/new`, order, config);
     dispatch({ type: CREATE_ORDER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -45,7 +46,7 @@ export const Myorders = ( ) => async (dispatch ) => {
   try {
     dispatch({ type: MY_ORDERS_REQUEST });
      
-    const { data } = await axios.get("/api/v1/orders/me");
+    const { data } = await axios.get(`${backedurl}/api/v1/orders/me`);
     dispatch({ type: MY_ORDERS_SUCCESS, payload: data.orders });
     
   } catch (error) {
@@ -60,7 +61,7 @@ export const getAllorders = ( ) => async (dispatch ) => {
   try {
     dispatch({ type: ALL_ORDERS_REQUEST });
      
-    const { data } = await axios.get("/api/v1/admin/orders");
+    const { data } = await axios.get(`${backedurl}/api/v1/admin/orders`);
     dispatch({ type: ALL_ORDERS_SUCCESS, payload: data.orders });
     
   } catch (error) {
@@ -75,7 +76,7 @@ export const getorderDetails = ( id) => async (dispatch, getState) => {
   try {
     dispatch({ type: ORDER_DETAILS_REQUEST });
      
-    const { data } = await axios.get(`/api/v1/order/${id}`);
+    const { data } = await axios.get(`${backedurl}/api/v1/order/${id}`);
     dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data.order });
      
     
@@ -95,7 +96,7 @@ export const updateOrder = (id,order) => async (dispatch ) => {
         "Content-Type": "application/json",
       },
     };
-    const { data } = await axios.put(`/api/v1/admin/order/${id}`, order, config);
+    const { data } = await axios.put(`${backedurl}/api/v1/admin/order/${id}`, order, config);
     console.log(data)
     dispatch({ type: UPDATE_ORDERS_SUCCESS, payload: data.success });
   } catch (error) {
@@ -110,7 +111,7 @@ export const deleteOrder = (id) => async (dispatch ) => {
   try {
     dispatch({ type: DELETE_ORDERS_REQUEST });
     
-    const { data } = await axios.delete(`/api/v1/admin/order/${id}`  );
+    const { data } = await axios.delete(`${backedurl}/api/v1/admin/order/${id}`  );
     dispatch({ type: DELETE_ORDERS_SUCCESS, payload: data.success });
   } catch (error) {
     dispatch({

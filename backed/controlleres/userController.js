@@ -97,7 +97,7 @@ const forgotPassowrd = catcherrors(async (req, res, next) => {
 
   await user.save({ validateBeforeSave: false });
 
-  const resetPasswordURL = `${req.protocol}://${req.get("host")}/password/reset/${resettoken}`;
+  const resetPasswordURL = `https://kaleidoscopic-alfajores-22ce37.netlify.app/api/vi/password/reset/${resettoken}`;
 
   const message = ` Your password token is   :- \n\n ${resetPasswordURL} \n\n if you have requested this email then , please ignore it `;
 

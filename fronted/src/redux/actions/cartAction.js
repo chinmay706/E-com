@@ -1,11 +1,12 @@
 import { ADD_TO_CART,REMOVE_TO_CART, SAVE_SHIPPING_INFO } from "../constants/cartContant";
 import axios from "axios";
 // ADD TO CART
+const backedurl = "https://mern-stack-ecommerce-bh7z.onrender.com"
 export const addItemsToCart = (id,quantity) => async (dispatch,getState)=>{
     
      
  
-        const {data} = await axios.get(`/api/v1/product/${id}`)
+        const {data} = await axios.get(`${backedurl}/api/v1/product/${id}`)
         
         dispatch({
             type:ADD_TO_CART,
@@ -20,8 +21,7 @@ export const addItemsToCart = (id,quantity) => async (dispatch,getState)=>{
              
             },
         });
-        // console.log(getState())
-
+       
         localStorage.setItem("cartItems",JSON.stringify(getState().cart.cartItems))
         
     

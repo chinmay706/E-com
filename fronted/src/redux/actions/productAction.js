@@ -30,12 +30,13 @@ import {
   DELETE_REVIEW_FAIL,
   
 } from "../constants/ProductContants.js";
+const backedurl = "https://mern-stack-ecommerce-bh7z.onrender.com"
 
 export const getProduct = (keyword='',currentPage = 1 , price=[0,250000],category,ratings=0) => async (dispatch) => {
   try {
-    let link  = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings} ` ;
+    let link  = `${backedurl}/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings} ` ;
     if(category){
-      link  = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}` ;
+      link  = `${backedurl}/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}` ;
     }
 
  
@@ -70,7 +71,7 @@ export const createproduct = (productData) => async (dispatch) => {
     },
   };
 
-    const { data } = await axios.post(`/api/v1/admin/product/new`,productData,config);
+    const { data } = await axios.post(`${backedurl}/api/v1/admin/product/new`,productData,config);
  
     
     dispatch({
@@ -97,7 +98,7 @@ export const updateProduct = (id,productData) => async (dispatch) => {
   };
    
 
-    const { data } = await axios.put(`/api/v1/admin/product/${id}`,productData,config);
+    const { data } = await axios.put(`${backedurl}/api/v1/admin/product/${id}`,productData,config);
      
     
     dispatch({
@@ -121,7 +122,7 @@ export const deleteproduct = (id) => async (dispatch) => {
       
    
 
-    const { data } = await axios.delete(`/api/v1/admin/product/${id}` );
+    const { data } = await axios.delete(`${backedurl}/api/v1/admin/product/${id}` );
  
     
     dispatch({
@@ -143,7 +144,7 @@ export const getProductDetails = (id) => async (dispatch) => {
       dispatch({ type: PRODUCT_DETAILS_REQUEST });
        
 
-      const { data } = await axios.get(`/api/v1/product/${id}`);
+      const { data } = await axios.get(`${backedurl}/api/v1/product/${id}`);
   
  
       
@@ -170,7 +171,7 @@ export const newReview = (reviewData) => async (dispatch) => {
       },
     };
 
-      const { data } = await axios.put(`/api/v1/review`,reviewData,config);
+      const { data } = await axios.put(`${backedurl}/api/v1/review`,reviewData,config);
    
       
       dispatch({
@@ -188,7 +189,7 @@ export const newReview = (reviewData) => async (dispatch) => {
 export const getAdminProduct=() => async(dispatch)=>{
   try {
     dispatch({ type: ADMIN_PRODUCT_REQUEST });
-    const {data} =  await axios.get("/api/v1/admin/products");
+    const {data} =  await axios.get(`${backedurl}/api/v1/admin/products`);
     
     dispatch({
       type: ADMIN_PRODUCT_SUCCESS,
@@ -211,7 +212,7 @@ export const getAllreviews = (id) => async (dispatch) => {
     dispatch({ type: ALL_REVIEW_REQUEST });
     
 
-    const { data } = await axios.get(`/api/v1/reviews?id=${id}` );
+    const { data } = await axios.get(`${backedurl}/api/v1/reviews?id=${id}` );
   
     dispatch({
       type: ALL_REVIEW_SUCCESS,
@@ -232,7 +233,7 @@ export const deleteReviews = (reviewId,productId) => async (dispatch) => {
     dispatch({ type: DELETE_REVIEW_REQUEST});
     
 
-    const { data } = await axios.delete(`/api/v1/reviews?id=${reviewId}&productId=${productId}` );
+    const { data } = await axios.delete(`${backedurl}/api/v1/reviews?id=${reviewId}&productId=${productId}` );
  
     
     dispatch({
