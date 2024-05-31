@@ -14,6 +14,7 @@ process.on('uncaughtException', (err) => {
     process.exit(1);
 });
 axios.defaults.withCredentials = true;
+axios.defaults.baseURL = "https://mern-stack-ecommerce-bh7z.onrender.com"
 // Config
 if (process.env.NODE_ENV !== 'PRODUCTION') {
     dotenv.config({ path: './config/.env' });
