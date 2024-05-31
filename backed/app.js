@@ -37,8 +37,8 @@ app.use("/api/v1",product)
 app.use("/api/v1",userRoute)
 app.use("/api/v1",order)
 app.use("/api/v1",payment)
-app.use(express.static(path.join(__dirname,"../fronted/build")))
-app.get("*",(req,res)=>{res.sendFile(path.resolve(__dirname,"../fronted/build/index.html"))})
+// app.use(express.static(path.join(__dirname,"../fronted/build")))
+// app.get("*",(req,res)=>{res.sendFile(path.resolve(__dirname,"../fronted/build/index.html"))})
 app.use(errormidleware)
 
 export default app; 
