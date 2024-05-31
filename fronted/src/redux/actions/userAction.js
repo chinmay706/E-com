@@ -39,6 +39,7 @@ import {
 
 import axios from "axios";
 const backedurl = "https://mern-stack-ecommerce-bh7z.onrender.com"
+// const backedurl = "http://localhost:4000"
 
 // LOGIN ACTION ==>
 export const login = (email, password) => async (dispatch) => {

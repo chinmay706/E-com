@@ -23,6 +23,7 @@ import {
 
 import axios from "axios";
 const backedurl = "https://mern-stack-ecommerce-bh7z.onrender.com"
+// const backedurl = "http://localhost:4000"
 export const createOrder = (order) => async (dispatch ) => {
   try {
     dispatch({ type: CREATE_ORDER_REQUEST });

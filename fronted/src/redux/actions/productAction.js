@@ -31,7 +31,7 @@ import {
   
 } from "../constants/ProductContants.js";
 const backedurl = "https://mern-stack-ecommerce-bh7z.onrender.com"
-
+// const backedurl = "http://localhost:4000"
 export const getProduct = (keyword='',currentPage = 1 , price=[0,250000],category,ratings=0) => async (dispatch) => {
   try {
     let link  = `${backedurl}/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings} ` ;
