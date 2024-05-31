@@ -6,6 +6,8 @@ import fileUpload from "express-fileupload"
 import dotenv from 'dotenv';
 import { fileURLToPath } from "url";
 import path from "path"
+import cors from "cors"
+ 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
  
@@ -23,6 +25,7 @@ app.use(bodyParser.urlencoded({extended:true}))
  
 // app.use(express.urlencoded({extended:true}))
 app.use(fileUpload())
+app.use(cors());
 
 
 // Route Import 

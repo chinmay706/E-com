@@ -46,7 +46,7 @@ export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
 
-    const config = { headers: { "Content-Type": "application/json" } };
+    const config = { headers: { "Content-Type": "application/json" }, withCredentials: true, };
 
     const { data } = await axios.post(
       "https://mern-stack-ecommerce-bh7z.onrender.com/api/v1/login",
