@@ -122,8 +122,8 @@ export const deleteproduct = (id) => async (dispatch) => {
 
       
    
-
-    const { data } = await axios.delete(`${backedurl}/api/v1/admin/product/${id}` );
+    const config = {   withCredentials: true, };
+    const { data } = await axios.delete(`${backedurl}/api/v1/admin/product/${id}` ,config);
  
     
     dispatch({
@@ -144,8 +144,8 @@ export const getProductDetails = (id) => async (dispatch) => {
     try {
       dispatch({ type: PRODUCT_DETAILS_REQUEST });
        
-
-      const { data } = await axios.get(`${backedurl}/api/v1/product/${id}`);
+      const config = {   withCredentials: true, };
+      const { data } = await axios.get(`${backedurl}/api/v1/product/${id}`,config);
   
  
       
@@ -190,7 +190,8 @@ export const newReview = (reviewData) => async (dispatch) => {
 export const getAdminProduct=() => async(dispatch)=>{
   try {
     dispatch({ type: ADMIN_PRODUCT_REQUEST });
-    const {data} =  await axios.get(`${backedurl}/api/v1/admin/products`);
+    const config = {   withCredentials: true, };
+    const {data} =  await axios.get(`${backedurl}/api/v1/admin/products`,config);
     
     dispatch({
       type: ADMIN_PRODUCT_SUCCESS,
@@ -211,9 +212,9 @@ export const getAllreviews = (id) => async (dispatch) => {
    
   try {
     dispatch({ type: ALL_REVIEW_REQUEST });
-    
+    const config = {   withCredentials: true, };
 
-    const { data } = await axios.get(`${backedurl}/api/v1/reviews?id=${id}` );
+    const { data } = await axios.get(`${backedurl}/api/v1/reviews?id=${id}` ,config);
   
     dispatch({
       type: ALL_REVIEW_SUCCESS,
@@ -232,9 +233,9 @@ export const deleteReviews = (reviewId,productId) => async (dispatch) => {
    
   try {
     dispatch({ type: DELETE_REVIEW_REQUEST});
-    
+    const config = {   withCredentials: true, };
 
-    const { data } = await axios.delete(`${backedurl}/api/v1/reviews?id=${reviewId}&productId=${productId}` );
+    const { data } = await axios.delete(`${backedurl}/api/v1/reviews?id=${reviewId}&productId=${productId}`,config );
  
     
     dispatch({

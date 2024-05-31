@@ -152,7 +152,8 @@ export const logout = () => async (dispatch) => {
 export const getAllUsers = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_USERS_REQUEST });
-    const { data } = await axios.get(`${backedurl}/api/v1/admin/users`);
+    const config = {   withCredentials: true, };
+    const { data } = await axios.get(`${backedurl}/api/v1/admin/users`,config);
 
     dispatch({ type: ALL_USERS_SUCCESS, payload: data.users });
   } catch (error) {
@@ -171,7 +172,8 @@ export const getAllUsers = () => async (dispatch) => {
 export const getUserDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: USER_DETAILS_REQUEST });
-    const { data } = await axios.get(`${backedurl}/api/v1/admin/user/${id}`);
+    const config = {   withCredentials: true, };
+    const { data } = await axios.get(`${backedurl}/api/v1/admin/user/${id}`,config);
 
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data.user });
   } catch (error) {
