@@ -24,7 +24,7 @@ app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(fileUpload())
 app.use(cors({
-    origin: 'https://kaleidoscopic-alfajores-22ce37.netlify.app',
+    origin: 'https://mern-stack-eccomerce-suresh.netlify.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true // Allow credentials (cookies, authorization headers, etc.)
 }));

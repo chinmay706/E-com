@@ -32,7 +32,7 @@ cloudinary.config({
 
 // Enable CORS
 app.use(cors({
-    origin: 'https://kaleidoscopic-alfajores-22ce37.netlify.app', // Allow your local frontend to access the backend
+    origin: 'https://mern-stack-eccomerce-suresh.netlify.app', // Allow your local frontend to access the backend
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 }));
