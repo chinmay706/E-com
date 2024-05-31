@@ -20,18 +20,10 @@ const isAuthenicatedUser = catcherrors(async(req,res,next)=>{
 
     next()
 
-
-
-
-
-
-
      
 
 })
 const authorizeRoles =  (...roles)=>{
-
-
     return ((req,res,next)=>{
         if(!roles.includes(req.user.role)){
         return next(    new errorHandler(`Role : ${req.user.role} is not allowed to access the resource `,403) )
