@@ -4,6 +4,7 @@ import cors from 'cors'; // Ensure this line is present
 import connectMongo from './config/database.js';
 import cloudinary from 'cloudinary';
 import app from './app.js';
+import axios from "axios"
 
 // Handling Uncaught Exceptions
 process.on('uncaughtException', (err) => {
@@ -12,7 +13,7 @@ process.on('uncaughtException', (err) => {
     console.error('Shutting down the Server due to Unhandled Promise Rejection');
     process.exit(1);
 });
-
+axios.defaults.withCredentials = true;
 // Config
 if (process.env.NODE_ENV !== 'PRODUCTION') {
     dotenv.config({ path: './config/.env' });
