@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
    precision:0.5
 
   };
-  console.log(product)
+ 
   
   
   const id = product._id

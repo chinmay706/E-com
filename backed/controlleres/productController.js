@@ -7,23 +7,32 @@ import { v2 as cloudinary } from "cloudinary";
 
 // Create product -- Admin
 const createProduct = catcherrors(async (req, res, next) => {
+   
   let images = [];
   if (typeof req.body.images === "string") {
     images.push(req.body.images);
   } else if (Array.isArray(req.body.images)) {
     images = req.body.images;
   }
-  const imagesLinks = [];
-  for (let i = 0; i < images.length; i++) {
-    const result = await cloudinary.uploader.upload(images[i], {
-      folder: "products",
-    });
-    imagesLinks.push({
-      public_id: result.public_id,
-      url: result.secure_url,
-    });
-  }
-  req.body.images = imagesLinks;
+   
+  let imageslink = [];
+  Object.keys(req.body).forEach(key => {
+    if (key.startsWith('images[') && key.endsWith('[public_id]')) {
+      const index = key.match(/\[(.*?)\]/)[1];
+      if (!imageslink[index]) {
+        imageslink[index] = {};
+      }
+      imageslink[index].public_id = req.body[key];
+    }
+    if (key.startsWith('images[') && key.endsWith('[url]')) {
+      const index = key.match(/\[(.*?)\]/)[1];
+      if (!imageslink[index]) {
+        imageslink[index] = {};
+      }
+      imageslink[index].url = req.body[key];
+    }
+  });
+  req.body.images = imageslink;
   req.body.user = req.user.id;
   const Product = await product.create(req.body);
 

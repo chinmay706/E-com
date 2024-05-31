@@ -16,36 +16,62 @@ const NewProduct = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
   const navigate = useNavigate();
-  const createproductSubmitHandler = (e) => {
-    e.preventDefault();
-    const myForm = new FormData();
-    myForm.set("name", name);
-    myForm.set("price", price);
-    myForm.set("description", description);
-    myForm.set("category", category);
-    myForm.set("Stock", Stock);
-
-    images.forEach((image) => {
-      myForm.append("images", image);
-    });
-    dispatch(createproduct(myForm));
+  const [backedloding,setBackedloging] = useState("")
+  const cloudinaryConfig = {
+    cloudName: "dhvvefbcj",
+    apiKey: "615664218991955",
+    apiSecret: "KnAEi9BTrSqpQ8Fd31Crm4EEW0A",
   };
 
+  const createproductSubmitHandler = async (e) => {
+    e.preventDefault();
+    setBackedloging(true)
+
+    try {
+      // Cloudinary mein images ko upload karna
+      const uploadedImages = await Promise.all(
+        images.map(async (image) => {
+          const formData = new FormData();
+          formData.append("file", image);
+          formData.append("upload_preset", "jpctpavk");
+  
+          const response = await fetch(
+            `https://api.cloudinary.com/v1_1/${cloudinaryConfig.cloudName}/image/upload`,
+            {
+              method: "POST",
+              body: formData,
+            }
+          );
+          const data = await response.json();
+          console.log({ public_id: data.public_id, url: data.secure_url })
+          
+          
+         
+          return { public_id: data.public_id, url: data.secure_url };
+        })
+      );
+     
+// Updated product ka data
+      const updatedProductData = {
+        name,
+        price,
+        description,
+        category,
+        Stock,
+        images:uploadedImages
+      };
+      
+       
+      dispatch(createproduct( updatedProductData));
+    } catch (error) {
+      console.error("Cloudinary mein image upload karne me error aaya:", error);
+    }
+  };
   const createproductImagesChange = (e) => {
     const files = Array.from(e.target.files);
-    setImages([]);
-    setImagesPreview([]);
-    files.forEach((file) => {
-      const reader = new FileReader();
+    setImages(files);
+    setImagesPreview(files.map((file) => URL.createObjectURL(file)));
 
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          setImagesPreview((old) => [...old, reader.result]);
-          setImages((old) => [...old, reader.result]);
-        }
-      };
-      reader.readAsDataURL(file);
-    });
   };
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
@@ -64,14 +90,18 @@ const NewProduct = () => {
     "SmartPhones",
   ];
   const { loading, error, success } = useSelector((state) => state.newProduct);
-  console.log(imagesPreview);
+   
   useEffect(() => {
     if (error) {
+      
       alert.error(error);
+      setBackedloging(false)
       dispatch(clearErrors());
     }
     if (success) {
+      
       alert.success("Product Created Successfully");
+      setBackedloging(false)
       navigate("/admin/dashboard");
       dispatch({ type: NEW_PRODUCT_RESET });
     }
@@ -176,7 +206,7 @@ const NewProduct = () => {
             <button
               className="border-none md:my-1 my-2  hover:bg[rgb(179,66,46)] bg-[tomato] text-white font-light font-Roboto text-[1.9vmax] p-[1.8vmax] md:text-[1vmax] w-full md:p-[0.8vmax] transition-all duration-500 no-underline  shadow-sm"
               type="submit"
-              disabled={loading ? true : false}
+              disabled={loading ? true : false || backedloding?true:false }
                
             >
               Create

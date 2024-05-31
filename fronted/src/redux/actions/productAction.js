@@ -31,7 +31,7 @@ import {
   
 } from "../constants/ProductContants.js";
 
-export const getProduct = (keyword='',currentPage = 1 , price=[0,25000],category,ratings=0) => async (dispatch) => {
+export const getProduct = (keyword='',currentPage = 1 , price=[0,250000],category,ratings=0) => async (dispatch) => {
   try {
     let link  = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings} ` ;
     if(category){
@@ -43,6 +43,7 @@ export const getProduct = (keyword='',currentPage = 1 , price=[0,25000],category
     
 
     const { data } = await axios.get(link);
+     
     
 
     dispatch({
@@ -97,8 +98,7 @@ export const updateProduct = (id,productData) => async (dispatch) => {
    
 
     const { data } = await axios.put(`/api/v1/admin/product/${id}`,productData,config);
-    console.log(data)
- 
+     
     
     dispatch({
       type: UPDATE_PRODUCT_SUCCESS,
@@ -145,7 +145,7 @@ export const getProductDetails = (id) => async (dispatch) => {
 
       const { data } = await axios.get(`/api/v1/product/${id}`);
   
-    // console.log(data)
+ 
       
       dispatch({
         type: PRODUCT_DETAILS_SUCCESS,

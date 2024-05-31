@@ -49,7 +49,7 @@ export const login = (email, password) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" }, withCredentials: true, };
 
     const { data } = await axios.post(
-      "https://mern-stack-ecommerce-bh7z.onrender.com/api/v1/login",
+      "/api/v1/login",
       { email, password },
       config
     );

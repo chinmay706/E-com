@@ -248,7 +248,7 @@ const UpdateProduct = () => {
             <button
               className="border-none md:my-1 my-2 hover:bg[rgb(179,66,46)] bg-[tomato] text-white font-light font-Roboto text-[1.9vmax] p-[1.8vmax] md:text-[1vmax] w-full md:p-[0.8vmax] transition-all duration-500 no-underline shadow-sm"
               type="submit"
-              disabled={loading}
+              disabled={loading?true:false}
             >
               Update
             </button>

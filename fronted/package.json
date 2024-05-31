@@ -67,5 +67,6 @@
     "tailwindcss": "^3.4.3"
   },
   "proxy":"https://mern-stack-ecommerce-bh7z.onrender.com"
+ 
   
 }
