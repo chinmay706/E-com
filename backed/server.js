@@ -1,6 +1,6 @@
 import app from "./app.js";
 import dotenv from 'dotenv';
- 
+ import cors from "cors"
 import connectMongo from "./config/database.js";
 import cloudinary from "cloudinary";
 
@@ -28,6 +28,11 @@ cloudinary.config({
     api_secret:process.env.CLOUDINARY_API_SECRET
 
 })
+app.use(cors({
+    origin: 'http://localhost:3000', // Update with the frontend's origin
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+}));
 
 
 
