@@ -25,7 +25,10 @@ app.use(bodyParser.urlencoded({extended:true}))
  
 // app.use(express.urlencoded({extended:true}))
 app.use(fileUpload())
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true // Allow credentials (cookies, authorization headers, etc.)
+}));
 
 
 // Route Import 
