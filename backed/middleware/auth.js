@@ -7,6 +7,7 @@ import jwt from "jsonwebtoken"
 const isAuthenicatedUser = catcherrors(async(req,res,next)=>{
 
     const {token} = req.cookies;
+    console.log(req)
     if(!token){
         return next(new errorHandler("please login to access this resource",401))
 

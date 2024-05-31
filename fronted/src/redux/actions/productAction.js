@@ -67,8 +67,9 @@ export const createproduct = (productData) => async (dispatch) => {
 
       const config = {
     headers: {
-      "Content-Type": "multipart/form-data",
-    },
+      "Content-Type": "multipart/form-data"
+      
+    }, withCredentials: true,
   };
 
     const { data } = await axios.post(`${backedurl}/api/v1/admin/product/new`,productData,config);
@@ -94,7 +95,7 @@ export const updateProduct = (id,productData) => async (dispatch) => {
       const config = {
     headers: {
       "Content-Type": "multipart/form-data",
-    },
+    }, withCredentials: true,
   };
    
 
@@ -168,7 +169,7 @@ export const newReview = (reviewData) => async (dispatch) => {
         const config = {
       headers: {
         "Content-Type": "application/json",
-      },
+      }, withCredentials: true,
     };
 
       const { data } = await axios.put(`${backedurl}/api/v1/review`,reviewData,config);

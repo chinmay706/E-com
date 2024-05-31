@@ -29,6 +29,11 @@ app.use(cors({
     origin: 'https://kaleidoscopic-alfajores-22ce37.netlify.app',
     credentials: true // Allow credentials (cookies, authorization headers, etc.)
 }));
+app.use(cors({
+    origin: 'http://localhost:4000', // Allow your local frontend to access the backend
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+}));
 
 
 // Route Import 

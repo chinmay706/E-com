@@ -42,7 +42,7 @@ const backedurl = "https://mern-stack-ecommerce-bh7z.onrender.com"
 
 // LOGIN ACTION ==>
 export const login = (email, password) => async (dispatch) => {
-  console.log(email, password);
+   
 
   try {
     dispatch({ type: LOGIN_REQUEST });
@@ -80,7 +80,7 @@ export const regsiter = (userData) => async (dispatch) => {
   try {
     dispatch({ type: REGISTER_REQUEST });
 
-    const config = { header: { "Content-Type": "multipart/form-data" } };
+    const config = { header: { "Content-Type": "multipart/form-data" }, withCredentials: true, };
 
     const { data } = await axios.post(`${backedurl}/api/v1/register` , userData, config);
 
@@ -190,7 +190,7 @@ export const getUserDetails = (id) => async (dispatch) => {
 export const updateuser = (id, userdata) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_USER_REQUEST });
-    const config = { headers: { "Content-Type": "application/json" } };
+    const config = { headers: { "Content-Type": "application/json" }, withCredentials: true, };
     const { data } = await axios.put(`${backedurl}/api/v1/admin/user/${id}`,userdata,config);
 
     dispatch({ type: UPDATE_USER_SUCCESS, payload: data.success });
@@ -230,7 +230,7 @@ export const updateProfile = (userData) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_PROFILE_REQUEST });
 
-    const config = { header: { "Content-Type": "multipart/form-data" } };
+    const config = { header: { "Content-Type": "multipart/form-data" } , withCredentials: true,};
 
     const { data } = await axios.put(`${backedurl}/api/v1/me/update`, userData, config);
 
@@ -248,7 +248,7 @@ export const updatePassword = (password) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_PASSWORD_REQUEST });
 
-    const config = { headers: { "Content-Type": "application/json" } };
+    const config = { headers: { "Content-Type": "application/json" }, withCredentials: true, };
 
      
 
@@ -275,7 +275,7 @@ export const forgotPassword = (email) => async (dispatch) => {
   try {
     dispatch({ type: FORGOT_PASSWORD_REQUEST });
 
-    const config = { headers: { "Content-Type": "application/json" } };
+    const config = { headers: { "Content-Type": "application/json" }, withCredentials: true, };
 
     const { data } = await axios.post(`${backedurl}/api/v1/password/forgot`, email, config);
 
@@ -304,7 +304,7 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
   try {
     dispatch({ type: RESET_PASSWORD_REQUEST });
 
-    const config = { headers: { "Content-Type": "application/json" } };
+    const config = { headers: { "Content-Type": "application/json" }, withCredentials: true, };
 
     const { data } = await axios.put(
       `${backedurl}/api/v1/password/reset/${token}`,
