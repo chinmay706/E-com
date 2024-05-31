@@ -43,7 +43,7 @@ const createProduct = catcherrors(async (req, res, next) => {
 });
 
 const getAllProduct = catcherrors(async (req, res, next) => {
-   console.log(req)
+   
   const resultPerpage = 10;
   const productCount = await product.countDocuments();
 
