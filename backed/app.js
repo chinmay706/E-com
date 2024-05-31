@@ -31,12 +31,7 @@ import product from "./routes/productRoute.js";
 import userRoute from "./routes/userRoute.js"
 import order from "./routes/orderRoute.js"
 import payment from "./routes/paymentRoute.js"
-app.use(cors({
-    origin: 'http://localhost:3000', // Allow your local frontend to access the backend
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-}));
-
+ 
 
 
 
