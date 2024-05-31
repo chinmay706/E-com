@@ -38,6 +38,7 @@ import {
 } from "../constants/userContant.js";
 
 import axios from "axios";
+const backedurl = "https://mern-stack-ecommerce-bh7z.onrender.com"
 
 // LOGIN ACTION ==>
 export const login = (email, password) => async (dispatch) => {
@@ -49,7 +50,7 @@ export const login = (email, password) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" }, withCredentials: true, };
 
     const { data } = await axios.post(
-      "/api/v1/login",
+      `${backedurl}/api/v1/login`,
       { email, password },
       config
     );
@@ -81,7 +82,7 @@ export const regsiter = (userData) => async (dispatch) => {
 
     const config = { header: { "Content-Type": "multipart/form-data" } };
 
-    const { data } = await axios.post(`/api/v1/register`, userData, config);
+    const { data } = await axios.post(`${backedurl}/api/v1/register` , userData, config);
 
     dispatch({ type: REGISTER_SUCCESS, payload: data.user });
   } catch (error) {
@@ -98,7 +99,7 @@ export const loaduser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_REGISTER_REQUEST });
 
-    const { data } = await axios.get("/api/v1/me");
+    const { data } = await axios.get(`${backedurl}/api/v1/me`);
 
     dispatch({ type: LOAD_REGISTER_SUCCESS, payload: data.user });
   } catch (error) {
