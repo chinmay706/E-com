@@ -23,16 +23,16 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(fileUpload())
-app.use(cors({
-    origin: 'https://mern-stack-eccomerce-suresh.netlify.app',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true // Allow credentials (cookies, authorization headers, etc.)
-}));
 // app.use(cors({
-//     origin: 'http://localhost:3000',  
+//     origin: 'https://mern-stack-eccomerce-suresh.netlify.app',
 //     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//     credentials: true,
+//     credentials: true // Allow credentials (cookies, authorization headers, etc.)
 // }));
+app.use(cors({
+    origin: 'http://localhost:3000',  
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+}));
 
 
 // Route Import 
