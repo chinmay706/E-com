@@ -1,6 +1,6 @@
 
 import dotenv from 'dotenv';
-import cors from 'cors'; // Ensure this line is present
+import cors from 'cors';  
 import connectMongo from './config/database.js';
 import cloudinary from 'cloudinary';
 import app from './app.js';
