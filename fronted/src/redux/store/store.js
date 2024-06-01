@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import { thunk } from "redux-thunk";
+import thunk from 'redux-thunk'
+
 
 import {
   ProductDetailsReducer,
@@ -53,6 +54,7 @@ const store = createStore(
   reducer,
   initailState,
   applyMiddleware(...middleware)
+  
 );
 
 

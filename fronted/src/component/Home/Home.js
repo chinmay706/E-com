@@ -31,19 +31,18 @@ const Home = () => {
     <Fragment >
       {loading? (<Loading/>) :  (<Fragment><MetaData title="Home page is working " />
         <div   className="image relative after:content-[attr(after)] after:absolute after:top-0 after:left-0 after:bg-white after:h-[108.7vmin] after:w-[100vw] after:overflow-hidden   bg-gradient-to-r from-[#635dc0]  after:pt-2  to-[#3027ae] h-[91.4vmin]  width-[100vw] flex text-center flex-col justify-center text-white   after:clip-polygon overflow-hidden ">
-            <p className=" text-lg font-semibold ">Welcome to Ecommmerce</p>
+            <p className=" text-[1.5vmax] font-semibold ">Welcome to Ecommmerce</p>
             <h1 className='m-[5vmax] font-Roboto font-semibold text-[2.5vmax] '>FIND AMAZING PRODUCT BELOW</h1>
 
             <div  >
-                <button   className='border hover:bg-transparent transition-all delay-150 duration-300 ease-in-out  border-black text-black  rounded-lg  cursor-pointer  px-4  bg-white' 
+                <button   className=' hover:bg-transparent transition-all delay-150 duration-300 ease-in-out   border-none text-black    cursor-pointer  px-4 text-[2vmax]  bg-white' 
                 onClick={()=>{
                   const element = document.getElementById("container")
                   element?.scrollIntoView({
                     behavior:"smooth"
                   })}
                   
-                //   productref.current?.scrollIntoView()
-                // }
+                
               }
                 >
                     Scroll  

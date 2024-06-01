@@ -173,7 +173,7 @@ const LoginSignUp = () => {
                   ) : (
                     <LiaEyeSolid
                       onClick={togglePasswordVisibility}
-                      className="absolute m-[4px]    translate-x-[1vmax]  cursor-pointer xl:right-[4vmax] right-[7vmax] text-[rgba(0,0,0,0.623)]"
+                      className="absolute m-[4px]    translate-x-[1vmax]  cursor-pointer xl:right-[4vmax] right-[7vmax] text-[rgba(0,0,0,0.623)] xl:text-[1.6vmax] text-[3vmax] "
                     />
                   )}
                 </div>

@@ -31,8 +31,13 @@ cloudinary.config({
 });
 
 // Enable CORS
+// app.use(cors({
+//     origin: 'https://mern-stack-eccomerce-suresh.netlify.app', // Allow your local frontend to access the backend
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true,
+// }));
 app.use(cors({
-    origin: 'https://mern-stack-eccomerce-suresh.netlify.app', // Allow your local frontend to access the backend
+    origin: ' http://localhost:3000 ', // Allow your local frontend to access the backend
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 }));
