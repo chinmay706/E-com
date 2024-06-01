@@ -233,7 +233,7 @@ export const updateProfile = (userData) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_PROFILE_REQUEST });
 
-    const config = { header: { "Content-Type": "multipart/form-data" } , withCredentials: true,};
+    const config = { header: {"Content-Type": "multipart/form-data" } , withCredentials: true,credentials:"include"};
 
     const { data } = await axios.put(`${backedurl}/api/v1/me/update`, userData, config);
 

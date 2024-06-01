@@ -190,7 +190,7 @@ export const newReview = (reviewData) => async (dispatch) => {
 export const getAdminProduct=() => async(dispatch)=>{
   try {
     dispatch({ type: ADMIN_PRODUCT_REQUEST });
-    const config = {   withCredentials: true, };
+    const config = {  withCredentials: true, credentials:"include"};
     const {data} =  await axios.get(`${backedurl}/api/v1/admin/products`,config);
     
     dispatch({

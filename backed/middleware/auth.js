@@ -15,8 +15,9 @@ const isAuthenicatedUser = catcherrors(async(req,res,next)=>{
 
     const decodedData =  jwt.verify(token,process.env.JWT_SECRET)
 
-
-    req.user = await User.findById(decodedData.id)
+   const rootUser = await User.findById(decodedData.id)
+    req.user = rootUser;
+    req.token=token
 
 
     next()
