@@ -10,6 +10,7 @@ import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import SpellcheckIcon from "@material-ui/icons/Spellcheck";
 import Sidebar from "./Sidebar";
 import { NEW_PRODUCT_RESET } from "../../redux/constants/ProductContants";
+import Loading from "../layout/Loader/Loading.js"
 import { useNavigate } from "react-router-dom";
 
 const NewProduct = () => {
@@ -112,7 +113,7 @@ const NewProduct = () => {
   return (
     <Fragment>
       <MetaData title="Create Product" />
-      <div className="da w-[100vw]  max-w-full grid md:grid-cols-[1fr,5fr]  grid-cols-[1fr] absolute">
+     {loading || backedloding ?<Loading/>:( <div className="da w-[100vw]  max-w-full grid md:grid-cols-[1fr,5fr]  grid-cols-[1fr] absolute">
         <Sidebar />
         <div className="flex box-border items-center justify-center   md:bg-[rgba(221,221,221)] bg-white  border-l border-solid border-[rgba(0,0,0,0.158)] flex-col h-[100vh]  ">
           <form
@@ -208,14 +209,14 @@ const NewProduct = () => {
             <button
               className="border-none md:my-1 my-2  hover:bg[rgb(179,66,46)] bg-[tomato] text-white font-light font-Roboto text-[1.9vmax] p-[1.8vmax] md:text-[1vmax] w-full md:p-[0.8vmax] transition-all duration-500 no-underline  shadow-sm"
               type="submit"
-              disabled={loading ? true : false || backedloding?true:false }
+              disabled={loading ? true : false   }
                
             >
               Create
             </button>
           </form>
         </div>
-      </div>
+      </div>)}
     </Fragment>
   );
 };
