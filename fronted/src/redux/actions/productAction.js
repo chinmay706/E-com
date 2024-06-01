@@ -69,7 +69,7 @@ export const createproduct = (productData) => async (dispatch) => {
     headers: {
       "Content-Type": "multipart/form-data"
       
-    }, withCredentials: true,
+    } ,
   };
 
     const { data } = await axios.post(`${backedurl}/api/v1/admin/product/new`,productData,config);

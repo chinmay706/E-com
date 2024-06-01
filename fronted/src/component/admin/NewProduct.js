@@ -13,10 +13,11 @@ import { NEW_PRODUCT_RESET } from "../../redux/constants/ProductContants";
 import { useNavigate } from "react-router-dom";
 
 const NewProduct = () => {
+  const { loading, error, success } = useSelector((state) => state.newProduct);
   const dispatch = useDispatch();
   const alert = useAlert();
   const navigate = useNavigate();
-  const [backedloding,setBackedloging] = useState("")
+  const [backedloding,setBackedloging] = useState(loading)
   const cloudinaryConfig = {
     cloudName: "dhvvefbcj",
     apiKey: "615664218991955",
@@ -25,9 +26,10 @@ const NewProduct = () => {
 
   const createproductSubmitHandler = async (e) => {
     e.preventDefault();
-    setBackedloging(true)
+    
 
     try {
+      setBackedloging(true)
       // Cloudinary mein images ko upload karna
       const uploadedImages = await Promise.all(
         images.map(async (image) => {
@@ -89,7 +91,7 @@ const NewProduct = () => {
     "Camera",
     "SmartPhones",
   ];
-  const { loading, error, success } = useSelector((state) => state.newProduct);
+
    
   useEffect(() => {
     if (error) {
