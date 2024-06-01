@@ -23,20 +23,13 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(fileUpload())
-// app.use(cors({
-//     origin: 'https://mern-stack-eccomerce-suresh.netlify.app',
-//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//     credentials: true // Allow credentials (cookies, authorization headers, etc.)
-// }));
 app.use(cors({
-    origin: 'http://localhost:3000',  
+    origin: 'https://mern-stack-eccomerce-suresh.netlify.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
+    credentials: true  
 }));
-
-
+ 
 // Route Import 
-
 import product from "./routes/productRoute.js";
 import userRoute from "./routes/userRoute.js"
 import order from "./routes/orderRoute.js"
@@ -48,9 +41,7 @@ import payment from "./routes/paymentRoute.js"
 app.use("/api/v1",product)
 app.use("/api/v1",userRoute)
 app.use("/api/v1",order)
-app.use("/api/v1",payment)
-// app.use(express.static(path.join(__dirname,"../fronted/build")))
-// app.get("*",(req,res)=>{res.sendFile(path.resolve(__dirname,"../fronted/build/index.html"))})
+app.use("/api/v1",payment) 
 app.use(errormidleware)
 
 export default app; 

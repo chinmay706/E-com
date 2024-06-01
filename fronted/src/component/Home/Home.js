@@ -35,7 +35,7 @@ const Home = () => {
             <h1 className='m-[5vmax] font-Roboto font-semibold text-[2.5vmax] '>FIND AMAZING PRODUCT BELOW</h1>
 
             <div  >
-                <button   className=' hover:bg-transparent transition-all delay-150 duration-300 ease-in-out   border-none text-black    cursor-pointer  px-4 text-[2vmax]  bg-white' 
+                <button   className=' hover:bg-transparent transition-all duration-500 ease-in-out     text-black    cursor-pointer  px-5 border hover:border-transparent text-[2vmax] hover:text-white  font-medium bg-white' 
                 onClick={()=>{
                   const element = document.getElementById("container")
                   element?.scrollIntoView({
@@ -45,7 +45,7 @@ const Home = () => {
                 
               }
                 >
-                    Scroll  
+                   scroll
                 </button>
             </div>
 
