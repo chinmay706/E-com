@@ -8,7 +8,7 @@ import { useAlert } from "react-alert";
 
 const Cart =  () => {
   const { cartItems } =  useSelector((state) => state.cart);
-  console.log(cartItems) 
+
   const alert = useAlert()
   const dispatch = useDispatch()
 
@@ -37,7 +37,7 @@ const Cart =  () => {
 
   const checkOutHandler = () => {
    for(let i = 0;i<cartItems.length;i++){
-    console.log(cartItems[i])
+     
     if(cartItems[i].stock<cartItems[i].quantity){
      
       alert.error(`${cartItems[i].name}product stock in not avaible `)

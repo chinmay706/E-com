@@ -54,7 +54,7 @@ const App = () => {
 
     const fetchStripeApiKey = async () => {
       try {
-        const { data } = await axios.get("/api/v1/stripekey");
+        const { data } = await axios.get("https://mern-stack-ecommerce-bh7z.onrender.com/api/v1/stripekey");
         setStripeApiKey(data.stripteApikey);
        
        

@@ -12,7 +12,6 @@ import {
   productReducer,
   reviewsReducer,
 } from "../reducers/ProductReducer.js";
-import { composeWithDevTools } from "redux-devtools-extension";
 import { allUsersReducer, forgotPasswordreducer, profileReducer, userReducer, userdetailsReducer } from "../reducers/userReducer.js";
 import { cartReducer } from "../reducers/cardReducer.js";
 import { allOrdersReducer, myOrdersReducer, newOrderReducer, orderDetailsreducer, ordersReducer } from "../reducers/orederreducer.js";
@@ -53,7 +52,8 @@ const middleware = [thunk];
 const store = createStore(
   reducer,
   initailState,
-  composeWithDevTools(applyMiddleware(...middleware))
+  applyMiddleware(...middleware)
 );
+
 
 export default store;
