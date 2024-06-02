@@ -112,8 +112,8 @@ const LoginSignUp = () => {
         <Loading />
       ) : (
         <Fragment >
-          <div   className="w-[100vw] md:h-[80%] h-[100vh] max-w-full bg-[#f8f8f893]   flex justify-center items-center backdrop-blur-lg   md:m-[5vmax] m-0  fixed top-0 left-0 md:static ">
-            <div className=" backdrop-blur-lg xl:w-[25vw] w-[100vw] xl:h-[70vh]  h-[100vh]  border-solid border-2 border-[#00000073] rounded-md  box-border overflow-hidden">
+          <div   className="w-[100vw] md:h-[80%] h-[90vh] max-w-full bg-[#f8f8f893]   flex justify-center items-center backdrop-blur-lg   md:m-[5vmax] m-0  relative top-[2.5rem]        md:static ">
+            <div className=" backdrop-blur-lg xl:w-[25vw] w-[100vw] xl:h-[70vh]  h-[100vh]  md:border-solid md:border-2 border-[#00000073] md:rounded-md  box-border overflow-hidden">
               <div>
                 <div className="flex xl:h-[3vmax] h-[5vmax]">
                   <p
@@ -137,7 +137,7 @@ const LoginSignUp = () => {
                 ></button>
               </div>
               <form
-                className={`flex flex-col  py-[7vmax] xl:py-0 items-center xl:m-auto xl:p-[2vmax] p-[5vmax] justify-evenly h-[70%]   px-[5vmax] transition-all duration-500  ${
+                className={`  flex flex-col  py-[7vmax] xl:py-0 items-center xl:m-auto xl:p-[2vmax] p-[5vmax] justify-evenly h-[70%]   px-[5vmax] transition-all duration-500  ${
                   tab === "register" && "translate-x-[100%] scale-0"
                 } `}
                 action=""

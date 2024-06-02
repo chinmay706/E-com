@@ -30,7 +30,7 @@ import {
   DELETE_REVIEW_FAIL,
   
 } from "../constants/ProductContants.js";
-const backedurl = "https://mern-stack-ecommerce-bh7z.onrender.com"
+const backedurl = process.env.REACT_APP_BACKEND_URL
 // const backedurl = "http://localhost:4000"
 export const getProduct = (keyword='',currentPage = 1 , price=[0,250000],category,ratings=0) => async (dispatch) => {
   try {
@@ -53,9 +53,10 @@ export const getProduct = (keyword='',currentPage = 1 , price=[0,250000],categor
     });
     
   } catch (error) {
+    console.log(error)
     dispatch({
       type: ALL_PRODUCT_FAIL,
-      payload: error.response.data.error,
+      payload: error.response?.data.error ,
     });
   }
 };

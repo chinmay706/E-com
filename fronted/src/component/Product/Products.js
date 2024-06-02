@@ -60,7 +60,7 @@ const Products = () => {
         <Fragment>
           <MetaData title="PRODUCTS --ECOMMERCE " /> 
           <div className=" my-[3vmax] flex items-center justify-center   ">
-            <h2 className="absolute block   mx-auto mt-[4vmax]  text-[rgba(65,65,65,0.7)]   border-b-2    text-center font-[600] md:text-[1.4vmax] text-[2vmax] border-black  py-2  px-5  mb-[2rem]">
+            <h2 className=" block   mx-auto mt-[4vmax] md:mt-0  text-[rgba(65,65,65,0.7)]   border-b-2    text-center font-[600] md:text-[1.4vmax] text-[2vmax] border-black  py-2  px-5  mb-[2vmax]">
               PRODUCTS
             </h2>
           </div>

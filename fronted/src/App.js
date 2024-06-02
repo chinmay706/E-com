@@ -39,8 +39,10 @@ import ProductReviews from "./component/admin/ProductReviews.js"
 import Contact from "./component/layout/contect/Contact.js";
 import About from "./component/layout/about/About.js"
 import NotFound from "./component/layout/notfound/NotFound.js"
-
+ 
+ 
 const App = () => {
+  
   const [stripeApiKey, setStripeApiKey] = useState("");
   const stripePromise = loadStripe(stripeApiKey)
   
@@ -54,7 +56,10 @@ const App = () => {
 
     const fetchStripeApiKey = async () => {
       try {
-        const { data } = await axios.get("https://mern-stack-ecommerce-bh7z.onrender.com/api/v1/stripekey");
+        
+       
+        const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/stripekey`);
+       
         setStripeApiKey(data.stripteApikey);
        
        

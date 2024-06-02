@@ -1,15 +1,11 @@
-
-
 import React, { Fragment, useEffect } from 'react';
-import { DataGrid } from '@material-ui/data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import { useSelector, useDispatch } from 'react-redux';
- 
 import { Link, useNavigate } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 import { Button } from '@material-ui/core';
 import MetaData from '../layout/MetaData';
 import Sidebar from './Sidebar';
-import "./productlist.css";
 import { deleteOrder, getAllorders,clearErrors } from '../../redux/actions/orderAction';
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -27,46 +23,8 @@ const OrderList = () => {
   const deleteOrderHandler = (id) => {
     dispatch(deleteOrder(id));
   };
-  const columns= [
-    {field:"id",headerName:"Order ID",minWidth:250,flex:1},
-    {field:"status",headerName:"Status",minWidth:200,flex:0.5,
-        cellClassName:(params)=>{
-            return params.getValue(params.id,"status") === "Delivered"?"text-[green]":"text-[red]"
-        }
-    },
-    {field:"itemsQty",headerName:"items Qty",type:"number",minWidth:200,flex:0.4},
-    {field:"amount",headerName:"Amount",type:"number",minWidth:200,flex:0.5},
-    {
-        field: "actions",
-        headerName: "Actions",
-        minWidth: 150,
-        flex: 0.3,
-        type: "number",
-        sortable: false,
-        renderCell: (params) => {
-          return (
-            <Fragment>
-              <Link
-                className='text-[rgba(0,0,0,0.527)] transition-all duration-500 hover:text-[tomato]'
-                to={`/admin/order/${params.getValue(params.id, "id")}`}
-              >
-                <EditIcon />
-              </Link>
-              <Button
-                onClick={() => deleteOrderHandler(params.getValue(params.id, "id"))}
-                className='text-[rgba(0,0,0,0.527)] transition-all duration-500 hover:text-[rgba(236,30,30)]'
-              >
-                <DeleteIcon />
-              </Button>
-            </Fragment>
-          );
-        },
-      },
-]
 
- 
   useEffect(() => {
-   
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
@@ -83,7 +41,41 @@ const OrderList = () => {
     dispatch(getAllorders());
   }, [dispatch,error, alert, deleteError, isDeleted, navigate]);
 
- 
+  const columns= [
+    {field:"id",headerName:"Order ID",minWidth:250,flex:0.2},
+    {field:"status",headerName:"Status",minWidth:200,flex:0.1,
+        cellClassName:(params)=>{
+          return params.value === "Delivered"?"text-[green]":"text-[red]"
+        }
+    },
+    {field:"itemsQty",headerName:"items Qty" ,minWidth:200,flex:0.2},
+    {field:"amount",headerName:"Amount",minWidth:200,flex:0.3},
+    {
+        field: "actions",
+        headerName: "Actions",
+        minWidth: 150,
+        flex: 0.2,
+        sortable: false,
+        renderCell: (params) => {
+          return (
+            <Fragment>
+              <Link
+                className='text-[rgba(0,0,0,0.527)] transition-all duration-500 hover:text-[tomato]'
+                to={`/admin/order/${params.row.id}`}
+              >
+                <EditIcon />
+              </Link>
+              <Button
+                onClick={() => deleteOrderHandler(params.row.id)}
+                className='text-[rgba(0,0,0,0.527)] transition-all duration-500 hover:text-[rgba(236,30,30)]'
+              >
+                <DeleteIcon />
+              </Button>
+            </Fragment>
+          );
+        },
+      },
+  ];
 
   const rows = [];
 
@@ -98,28 +90,27 @@ const OrderList = () => {
 
   return (
     <Fragment>
-      <MetaData title={`ALL ORDERS - ADMIN`} />
-      <div className='w-[100vw] h-full max-w-full grid md:grid-cols-[1fr,5fr] grid-cols-[1fr] absolute'>
-        <Sidebar />
-        <div className='w-full box-border bg-[white] flex border-l border-solid border-[rgba(0,0,0,0.158)] flex-col h-[100vh]'>
-          <h1 className='font-normal font-Roboto text-[2rem] p-[0.5rem] box-border text-[rgba(0,0,0,0.637)] transition-all duration-500 m-[2rem] text-center'>
-            ALL ORDERS
-          </h1>
+    <MetaData title={`ALL PRODUCTS - ADMIN`} />
+    <div className="w-[100vw] max-w-full h-full grid md:grid-cols-[1fr,5fr] grid-cols-[1fr] absolute">
+      <Sidebar />
+      <div className="w-full box-border bg-[white] flex border-l border-solid border-[rgba(0,0,0,0.158)] flex-col h-screen overflow-auto">
+        <h1 className="font-normal font-Roboto text-[2rem] p-[0.5rem] box-border text-[rgba(0,0,0,0.637)] transition-all duration-500 m-[2rem] text-center">
+          ALL ORDERS
+        </h1>
+        <div className="flex-1 overflow-auto w-[100vw]">
           <DataGrid
             rows={rows}
             columns={columns}
             pageSize={10}
             disableSelectionOnClick
-            className='productListTable bg-white !border-none'
+            className="bg-white !border-none"
             autoHeight
           />
         </div>
       </div>
-    </Fragment>
+    </div>
+  </Fragment>
   );
 };
 
- 
-
-
-export default OrderList
+export default OrderList;

@@ -1,7 +1,7 @@
 import { ADD_TO_CART,REMOVE_TO_CART, SAVE_SHIPPING_INFO } from "../constants/cartContant";
 import axios from "axios";
 // ADD TO CART
-const backedurl = "https://mern-stack-ecommerce-bh7z.onrender.com"
+const backedurl = process.env.REACT_APP_BACKEND_URL
 // const backedurl = "http://localhost:4000"
 export const addItemsToCart = (id,quantity) => async (dispatch,getState)=>{
     

@@ -251,36 +251,42 @@ const Header = () => {
         </div>
 
         <div
-          className={`sm:hidden  transition-all ${
-            show ? " block  " : "hidden  "
-          }   duration-500`}
+          className={`sm:hidden  z-30   absolute   left-0 w-full transition-all delay-100 ease-in-out  duration-700    ${
+            show ? "opacity-100   translate-y-[0%]   " : "opacity-0 -translate-y-[500%]   "
+          }    `}
           id="mobile-menu"
         >
           <div className="space-y-1 px-2 pb-3 pt-2">
             
             <Link
               to="/"
-              className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+              className={`bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium ${
+                show ? "fade-in delay-100" : ""
+              }`}
               aria-current="page"
+              onClick={handleClick}
             >
               Home
             </Link>
             <Link
               to="/Products"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-            >
+              className={`bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium ${
+                show ? "fade-in delay-200" : ""
+              }`}     onClick={handleClick}        >
               Projects
             </Link>
             <Link
               to="/contect"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-            >
+              className={`bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium ${
+                show ? "fade-in delay-300" : ""
+              }`}      onClick={handleClick}       >
               Contect
             </Link>
             <Link
               to="/about"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-            >
+              className={`bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium ${
+                show ? "fade-in delay-400" : ""
+              }`}  onClick={handleClick}           >
               About
             </Link>
           </div>

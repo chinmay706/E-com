@@ -28,7 +28,12 @@ app.use(cors({
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true  
 }));
- 
+// app.use(cors({
+//     origin: 'http://192.168.56.1:3000',
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true  
+// }));
+  
 // Route Import 
 import product from "./routes/productRoute.js";
 import userRoute from "./routes/userRoute.js"

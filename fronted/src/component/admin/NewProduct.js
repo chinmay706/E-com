@@ -14,6 +14,7 @@ import Loading from "../layout/Loader/Loading.js"
 import { useNavigate } from "react-router-dom";
 
 const NewProduct = () => {
+  const { loading, error, success } = useSelector((state) => state.newProduct);
   const dispatch = useDispatch();
   const alert = useAlert();
   const navigate = useNavigate();
@@ -90,7 +91,7 @@ const NewProduct = () => {
     "Camera",
     "SmartPhones",
   ];
-  const { loading, error, success } = useSelector((state) => state.newProduct);
+ 
    
   useEffect(() => {
     if (error) {

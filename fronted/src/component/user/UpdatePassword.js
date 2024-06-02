@@ -58,9 +58,9 @@ const UpdatePassword = () => {
       ) : (
         <Fragment>
           <MetaData title="Change Profile " />
-          <div className="w-[100vw] md:h-[80%] h-[100vh] max-w-full   flex justify-center items-center backdrop-blur-lg   md:m-[5vmax] m-0  fixed top-0 left-0 md:static ">
-            <div className=" backdrop-blur-lg xl:w-[25vw] w-[100vw] xl:h-[70vh] bg-[#f8f8f893]   h-[100vh]  border-solid border-2 border-[#0000003d]    box-border overflow-hidden">
-              <h2 className=" flex-nowrap text-center text-[rgba(0,0,0,0.664)] font-normal text-[1.3vmax] font-Roboto p-[1.3vmax] border-b border-solid border-[rgba(0,0,0,0.205)] w-[70%] m-auto ">
+          <div className="w-[100vw] md:h-[80%] h-[90vh] max-w-full bg-[#f8f8f893]   flex justify-center items-center backdrop-blur-lg   md:m-[5vmax] m-0  relative top-[2.9rem]    md:static ">
+            <div className=" backdrop-blur-lg xl:w-[25vw] w-[100vw] xl:h-[70vh] bg-[#f8f8f893]   h-[100vh]  border-solid  border-2 border-transparent md:border-[#0000003d]    box-border overflow-hidden">
+              <h2 className=" flex-nowrap text-center text-[rgba(0,0,0,0.664)] font-normal text-[2vmax] font-Roboto p-[1.3vmax] border-b border-solid border-[rgba(0,0,0,0.205)] w-[70%] m-auto ">
                 Update Password
               </h2>
               <form

@@ -1,5 +1,5 @@
 import React, { Fragment,useEffect } from 'react'
-import {DataGrid} from "@material-ui/data-grid"
+import { DataGrid } from '@mui/x-data-grid';
 import { useSelector,useDispatch } from 'react-redux'
 import { clearErrors,Myorders } from '../../redux/actions/orderAction'
 import Loading from "../layout/Loader/Loading";
@@ -18,7 +18,7 @@ const MyOrders = () => {
         {field:"id",headerName:"Order ID",minWidth:200,flex:0.4},
         {field:"status",headerName:"Status",minWidth:200,flex:0.3,
             cellClassName:(params)=>{
-                return params.getValue(params.id,"status") === "Delivered"?"text-[green]":"text-[red]"
+                return params.value === "Delivered"?"text-[green]":"text-[red]"
             }
         },
         {field:"itemsQty",headerName:"items Qty",type:"number",minWidth:200,flex:0.3},
@@ -26,7 +26,7 @@ const MyOrders = () => {
         {field:"actions",headerName:"Actions",flex:0.3,type:"number",minWidth:150,sortable:false , 
             renderCell: (params)=>{
                 return (
-                    <Link to={`/order/${params.getValue(params.id,"id")}`}>
+                    <Link to={`/order/${params.row.id}`}>
                         <LaunchIcon/>
                     </Link>
                 )

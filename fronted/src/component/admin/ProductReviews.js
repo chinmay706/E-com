@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { DataGrid } from "@material-ui/data-grid";
+import { DataGrid } from '@mui/x-data-grid';
 import { useSelector, useDispatch } from "react-redux";
 import {
   clearErrors,
@@ -66,7 +66,7 @@ const ProductReviews = () => {
       minWidth: 150,
       flex: 0.4,
       cellClassName: (params) => {
-        return params.getValue(params.id, "rating") >= 3
+        return params.value >= 3
           ? "!text-[green]"
           : "!text-[red]";
       },
@@ -75,15 +75,15 @@ const ProductReviews = () => {
       field: "actions",
       headerName: "Actions",
       minWidth: 150,
-      flex: 0.3,
-      type: "number",
+      flex: 0.2,
+       
       sortable: false,
       renderCell: (params) => {
         return (
           <Fragment>
             <Button
               onClick={() =>
-                deleteReviewHandler(params.getValue(params.id, "id"))
+                deleteReviewHandler(params.row.id)
               }
               className="text-[rgba(0,0,0,0.527)] transition-all duration-500 hover:text-[rgba(236,30,30)]"
             >
@@ -112,9 +112,9 @@ const ProductReviews = () => {
       <MetaData title={`ALL REVIEWS - ADMIN`} />
       <div className="w-[100vw] h-full max-w-full grid md:grid-cols-[1fr,5fr] grid-cols-[1fr] absolute">
         <Sidebar />
-        <div className="w-full box-border bg-[white]   border-l border-solid border-[rgba(0,0,0,0.158)]    h-[100vh]">
+        <div className="md:w-full  box-border bg-[white]   border-l border-solid border-[rgba(0,0,0,0.158)]   overflow-auto md:overflow-hidden   h-[100vh]">
           <form
-            className="  md:w-[30rem] flex  w-full  md:pb-[0] p-[5vmax]    flex-col items-center m-auto md:p-[3vmax]   md:h-[60%]  bg-white    shadow-slate-800    "
+            className=" md:m-auto md:w-[30rem] flex  w-[100vw]  md:pb-[0] p-[5vmax]    flex-col items-center   md:p-[3vmax]   md:h-[60%]  bg-white    shadow-slate-800    "
             onSubmit={productReviewsSumbitHandler}
             encType="multipart/form-data"
           >
@@ -151,7 +151,7 @@ const ProductReviews = () => {
               pageSize={10}
                
               disableSelectionOnClick
-              className="  w-[100%]  bg-white !border-none h-full  pr-5     "
+              className="flex-1 overflow-auto "
               autoHeight
             />
           ) : (

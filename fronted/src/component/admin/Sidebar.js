@@ -10,12 +10,12 @@ import ImportExportIcon from "@material-ui/icons/ImportExport"
 import ListAltIcon from "@material-ui/icons/ListAlt"
 import PeopleICon from "@material-ui/icons/People"
 import RateReviewIcon from "@material-ui/icons/RateReview"
-import "./slidebar.css"
+
 
 
 const Sidebar = () => {
   return (
-    <div className='bg-white flex flex-col py-[2rem] pt-[0] px-0 border-r border-solid border-[rgba(0,0,0,0.247)] '>
+    <div className='w-[100vw] md:w-full bg-white flex flex-col py-[2rem] pt-[0] px-0 border-r border-solid border-[rgba(0,0,0,0.247)] '>
         <Link to="/" className=' p-0'>
             <img className='w-full transition-all  duration-500   hover:drop-shadow-2xl   filter   ' src={logo} alt='Ecommerce' />
         </Link>

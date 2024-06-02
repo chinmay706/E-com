@@ -7,6 +7,7 @@ import store from "../src/redux/store/store.js";
 import {positions,Provider as AlertProvider, transitions} from "react-alert";
 import AlertTempate from "react-alert-template-basic"
 axios.defaults.withCredentials = true;
+
  
 const options = {
   timeout: 5000 ,

@@ -33,8 +33,11 @@ const About = () => {
           <div className="aboutSectionContainer2 flex  m-[1vmax] ml-0 text-center items-center ">
         
 
-        
-        <a className="md:text-[1vmax] text-[tomato] text-center " href="https://instagram.com/mr.nyol_007" target="blank">@mr.nyol_007</a>
+       <div className="flex flex-col items-start">
+         
+       <a className="md:text-[1vmax]  my-2   text-[tomato] text-center " href="https://instagram.com/mr.nyol_007" target="blank">instagram/@mr.nyol_007</a>
+        <a className="md:text-[1vmax]    text-[#4769ff] text-center " href="https://www.linkedin.com/in/suresh-kumar-337372270/" target="blank">linkedin/suresh-kumar</a>
+       </div>
       </div>
         </div>
       </div>

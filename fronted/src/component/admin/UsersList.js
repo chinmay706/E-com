@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import { DataGrid } from "@material-ui/data-grid";
+import { DataGrid } from '@mui/x-data-grid';
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useAlert } from "react-alert";
@@ -58,7 +58,7 @@ const UsersList = () => {
       minWidth: 150,
       flex: 0.3,
       cellClassName: (params) => {
-        return params.getValue(params.id, "role") === "admin"
+        return params.value === "admin"
           ? "!text-[green]"
           : "!text-[red]";
       },
@@ -75,13 +75,13 @@ const UsersList = () => {
           <Fragment>
             <Link
               className="text-[rgba(0,0,0,0.527)] transition-all duration-500 hover:text-[tomato]"
-              to={`/admin/user/${params.getValue(params.id, "id")}`}
+              to={`/admin/user/${params.row.id}`}
             >
               <EditIcon />
             </Link>
             <Button
               onClick={() =>
-                deleteuserHandler(params.getValue(params.id, "id"))
+                deleteuserHandler(params.row.id)
               }
               className="text-[rgba(0,0,0,0.527)] transition-all duration-500 hover:text-[rgba(236,30,30)]"
             >
@@ -110,18 +110,21 @@ const UsersList = () => {
     <MetaData title={`ALL REVIEWS - ADMIN`} />
     <div className="w-[100vw] h-full max-w-full grid md:grid-cols-[1fr,5fr] grid-cols-[1fr] absolute">
       <Sidebar />
-      <div className="w-full box-border bg-[white]   border-l border-solid border-[rgba(0,0,0,0.158)]    h-[100vh]">
+      <div className="w-[100vw] box-border bg-[white]   border-l border-solid border-[rgba(0,0,0,0.158)]    h-[100vh]">
       <h1 className="font-normal font-Roboto text-[2rem] p-[0.5rem] box-border text-[rgba(0,0,0,0.637)] transition-all duration-500 m-[2rem] text-center">
               ALL USERS
             </h1>
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={10}
-            disableSelectionOnClick
-            className="  w-[100%]  bg-white !border-none h-full  pr-5     "
-            autoHeight
-          />
+            <div className='w-full  box-border bg-[white] flex border-l border-solid border-[rgba(0,0,0,0.158)] flex-col h-[90vh] overflow-x-auto'>
+
+<DataGrid
+  rows={rows}
+  columns={columns}
+  pageSize={10}
+  disableSelectionOnClick
+  className='  bg-white !border-none overflow-x-auto '
+  autoHeight
+/>
+</div>
         
       </div>
     </div>

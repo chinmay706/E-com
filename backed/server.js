@@ -30,12 +30,6 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// Enable CORS
-app.use(cors({
-    origin: 'https://mern-stack-eccomerce-suresh.netlify.app',  
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-}));
  
  
 
