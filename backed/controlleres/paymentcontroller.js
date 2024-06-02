@@ -1,7 +1,7 @@
 import Stripe from "stripe";
 import catchErrors from "../middleware/catchAsyncError.js";
 
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_51P2AX3SJcpyDF8t4WwqUD9Zr8HZ9YdhltnGmecPQqXVWCaV2lWksYmoQWRJVfSh3Z6wQUDV74cXJnWgQFtCbMKmN00cCgzWjj8');
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY );
 
 export const   paymentController = catchErrors(async (req, res, next) => {
   const { amount, currency, description, name, address } = req.body;
