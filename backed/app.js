@@ -29,7 +29,7 @@ app.use(cors({
     credentials: true  
 }));
 // app.use(cors({
-//     origin: 'http://192.168.56.1:3000',
+//     origin: ' http://localhost:3000',
 //     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 //     credentials: true  
 // }));
