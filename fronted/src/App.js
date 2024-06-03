@@ -58,7 +58,7 @@ const App = () => {
       try {
         
        
-        const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/stripekey`);
+        const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL||"https://mern-stack-ecommerce-bh7z.onrender.com"}/api/v1/stripekey `);
        
         setStripeApiKey(data.stripteApikey);
        

@@ -22,8 +22,8 @@ import {
 
 
 import axios from "axios";
-const backedurl = process.env.REACT_APP_BACKEND_URL
-// const backedurl = "http://localhost:4000"
+ 
+const backedurl = "https://mern-stack-ecommerce-bh7z.onrender.com"
 export const createOrder = (order) => async (dispatch ) => {
   try {
     dispatch({ type: CREATE_ORDER_REQUEST });
@@ -98,7 +98,7 @@ export const updateOrder = (id,order) => async (dispatch ) => {
       }, withCredentials: true,
     };
     const { data } = await axios.put(`${backedurl}/api/v1/admin/order/${id}`, order, config);
-    console.log(data)
+    
     dispatch({ type: UPDATE_ORDERS_SUCCESS, payload: data.success });
   } catch (error) {
     dispatch({

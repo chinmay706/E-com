@@ -145,15 +145,19 @@ const ProductReviews = () => {
           </form>
 
           {reviews && reviews.length > 0 ? (
-            <DataGrid
-              rows={rows}
-              columns={columns}
-              pageSize={10}
-               
-              disableSelectionOnClick
-              className="flex-1 overflow-auto "
-              autoHeight
-            />
+                     <div className="h-full w-full overflow-auto">
+                     <div className="min-w-[950px]  md:min-w-full"  >
+                       <DataGrid
+                         rows={rows}
+                         columns={columns}
+                         pageSize={10}
+                         rowsPerPageOptions={[5]}
+                         disableSelectionOnClick
+                         className="bg-white !border-none"
+                        
+                       />
+                     </div>
+                     </div>
           ) : (
             <h1 className="font-normal font-Roboto text-[2rem] p-[0.5rem] box-border text-[rgba(0,0,0,0.637)] transition-all duration-500 m-[2rem] text-center">
            NO REVIEWS FOUND

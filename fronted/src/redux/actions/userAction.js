@@ -38,8 +38,8 @@ import {
 } from "../constants/userContant.js";
 
 import axios from "axios";
-const backedurl = process.env.REACT_APP_BACKEND_URL
-// const backedurl = "http://localhost:4000"
+ 
+const backedurl = "https://mern-stack-ecommerce-bh7z.onrender.com"
 
 // LOGIN ACTION ==>
 export const login = (email, password) => async (dispatch) => {
@@ -273,7 +273,7 @@ export const updatePassword = (password) => async (dispatch) => {
 // Forgot Password ==>
 
 export const forgotPassword = (email) => async (dispatch) => {
-  console.log(email);
+ 
 
   try {
     dispatch({ type: FORGOT_PASSWORD_REQUEST });

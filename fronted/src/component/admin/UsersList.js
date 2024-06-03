@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid } from "@mui/x-data-grid";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useAlert } from "react-alert";
@@ -58,9 +58,7 @@ const UsersList = () => {
       minWidth: 150,
       flex: 0.3,
       cellClassName: (params) => {
-        return params.value === "admin"
-          ? "!text-[green]"
-          : "!text-[red]";
+        return params.value === "admin" ? "!text-[green]" : "!text-[red]";
       },
     },
     {
@@ -80,9 +78,7 @@ const UsersList = () => {
               <EditIcon />
             </Link>
             <Button
-              onClick={() =>
-                deleteuserHandler(params.row.id)
-              }
+              onClick={() => deleteuserHandler(params.row.id)}
               className="text-[rgba(0,0,0,0.527)] transition-all duration-500 hover:text-[rgba(236,30,30)]"
             >
               <DeleteIcon />
@@ -107,28 +103,29 @@ const UsersList = () => {
 
   return (
     <Fragment>
-    <MetaData title={`ALL REVIEWS - ADMIN`} />
-    <div className="w-[100vw] h-full max-w-full grid md:grid-cols-[1fr,5fr] grid-cols-[1fr] absolute">
-      <Sidebar />
-      <div className="w-[100vw] box-border bg-[white]   border-l border-solid border-[rgba(0,0,0,0.158)]    h-[100vh]">
-      <h1 className="font-normal font-Roboto text-[2rem] p-[0.5rem] box-border text-[rgba(0,0,0,0.637)] transition-all duration-500 m-[2rem] text-center">
-              ALL USERS
-            </h1>
-            <div className='w-full  box-border bg-[white] flex border-l border-solid border-[rgba(0,0,0,0.158)] flex-col h-[90vh] overflow-x-auto'>
-
-<DataGrid
-  rows={rows}
-  columns={columns}
-  pageSize={10}
-  disableSelectionOnClick
-  className='  bg-white !border-none overflow-x-auto '
-  autoHeight
-/>
-</div>
-        
+      <MetaData title={`ALL REVIEWS - ADMIN`} />
+      <div className="w-[100vw] h-full max-w-full grid md:grid-cols-[1fr,5fr] grid-cols-[1fr] absolute">
+        <Sidebar />
+        <div className="w-[100vw] box-border bg-[white]   border-l border-solid border-[rgba(0,0,0,0.158)]    h-[100vh]">
+          <h1 className="font-normal font-Roboto text-[2rem] p-[0.5rem] box-border text-[rgba(0,0,0,0.637)] transition-all duration-500 m-[2rem] text-center">
+            ALL USERS
+          </h1>
+          <div className="h-full w-full overflow-auto">
+          <div className="min-w-[950px]  md:min-w-full"  >
+            <DataGrid
+              rows={rows}
+              columns={columns}
+              pageSize={10}
+              rowsPerPageOptions={[5]}
+              disableSelectionOnClick
+              className="bg-white !border-none"
+             
+            />
+          </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </Fragment>
+    </Fragment>
   );
 };
 

@@ -97,16 +97,19 @@ const OrderList = () => {
         <h1 className="font-normal font-Roboto text-[2rem] p-[0.5rem] box-border text-[rgba(0,0,0,0.637)] transition-all duration-500 m-[2rem] text-center">
           ALL ORDERS
         </h1>
-        <div className="flex-1 overflow-auto w-[100vw]">
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={10}
-            disableSelectionOnClick
-            className="bg-white !border-none"
-            autoHeight
-          />
-        </div>
+        <div className="h-full w-full overflow-auto">
+          <div className="min-w-[950px]  md:min-w-full"  >
+            <DataGrid
+              rows={rows}
+              columns={columns}
+              pageSize={10}
+              rowsPerPageOptions={[5]}
+              disableSelectionOnClick
+              className="bg-white !border-none"
+             
+            />
+          </div>
+          </div>
       </div>
     </div>
   </Fragment>

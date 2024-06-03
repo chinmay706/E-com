@@ -1,5 +1,5 @@
 [build]
-  command = "npm install --legacy-peer-deps --force && npm run build --prefix fronted"
+  command = "npm install --legacy-peer-deps --force && npm run build "
   publish = "fronted/build"
 
 [[redirects]]

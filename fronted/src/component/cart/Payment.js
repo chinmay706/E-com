@@ -58,12 +58,12 @@ const order = {
     e.preventDefault();
     payBtn.current.disabled = true;
     try {
-      const { data } = await axios.post("/api/v1/payment/process", paymentData, {
+      const { data } = await axios.post("https://mern-stack-ecommerce-bh7z.onrender.com/api/v1/payment/process", paymentData, {
         headers: {
           "Content-Type": "application/json",
         },
       });
-    console.log(data)
+    
       const clientSecret = data.client_secret;
 
       if (!clientSecret) {
@@ -110,7 +110,7 @@ const order = {
                 id:result.paymentIntent.id,
                 status:result.paymentIntent.status
               }
-              console.log(order)
+              
               dispatch(createOrder(order))
               navigate("/success");
             } else {
@@ -119,8 +119,8 @@ const order = {
             }
           }
     } catch (error) { 
-      console.log(error)
-      alert.error(error.response.data );
+    
+      alert.error(error.message);
       payBtn.current.disabled = false;
     }
   };

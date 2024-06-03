@@ -47,7 +47,7 @@ const ProductList = () => {
   }, [dispatch, alert, error, deleteError, isDeleted, navigate]);
 
   const columns = [
-    { field: "id", headerName: "Product ID", minWidth: 200, flex: 0.5 },
+    { field: "id", headerName: "Product ID", minWidth: 250, flex: 0.5 },
     { field: "name", headerName: "Name", minWidth: 200, flex: 1 },
     { field: "stock", headerName: "Stock", minWidth: 150, flex: 0.4 },
     { field: "price", headerName: "Price", minWidth: 250, flex: 0.6 },
@@ -96,19 +96,22 @@ const ProductList = () => {
       <MetaData title={`ALL PRODUCTS - ADMIN`} />
       <div className="w-[100vw] max-w-full h-full grid md:grid-cols-[1fr,5fr] grid-cols-[1fr] absolute">
         <Sidebar />
-        <div className="w-full box-border bg-[white] flex border-l border-solid border-[rgba(0,0,0,0.158)] flex-col h-screen overflow-auto">
-          <h1 className="font-normal font-Roboto text-[2rem] p-[0.5rem] box-border text-[rgba(0,0,0,0.637)] transition-all duration-500 m-[2rem] text-center">
+        <div className="w-[100vw] box-border bg-[white] flex border-l border-solid border-[rgba(0,0,0,0.158)] flex-col h-screen ">
+          <h1 className="font-normal   font-Roboto text-[2rem] p-[0.5rem] box-border text-[rgba(0,0,0,0.637)] transition-all duration-500 m-[2rem] text-center overflow-hidden">
             ALL PRODUCTS
           </h1>
-          <div className="flex-1 overflow-auto">
+          <div className="h-full w-full overflow-auto">
+          <div className="min-w-[950px] md:min-w-full"  >
             <DataGrid
               rows={rows}
               columns={columns}
               pageSize={10}
+              rowsPerPageOptions={[5]}
               disableSelectionOnClick
               className="bg-white !border-none"
-              autoHeight
+             
             />
+          </div>
           </div>
         </div>
       </div>
