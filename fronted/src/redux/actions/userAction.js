@@ -99,8 +99,14 @@ export const regsiter = (userData) => async (dispatch) => {
 export const loaduser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_REGISTER_REQUEST });
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      },
+      withCredentials: true,
+    };
 
-    const { data } = await axios.get(`${backedurl}/api/v1/me`);
+    const { data } = await axios.get(`${backedurl}/api/v1/me`,config);
 
     dispatch({ type: LOAD_REGISTER_SUCCESS, payload: data.user });
   } catch (error) {
