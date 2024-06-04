@@ -76,6 +76,9 @@ const logout = catcherrors(async (req, res, next) => {
   res.cookie("token", null, {
     expires: new Date(Date.now()),
     httpOnly: true,
+
+    secure: process.env.NODE_ENV === 'production'?true:false,  
+   sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax' 
   });
 
   res.status(200).json({

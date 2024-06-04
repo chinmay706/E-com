@@ -48,7 +48,7 @@ export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
 
-    const config = { headers: { "Content-Type": "application/json" }, withCredentials: true, };
+    const config = { headers: { "Content-Type": "application/json" }, withCredentials: true,credentials: 'include' };
 
     const { data } = await axios.post(
       `${backedurl}/api/v1/login`,
@@ -81,7 +81,7 @@ export const regsiter = (userData) => async (dispatch) => {
   try {
     dispatch({ type: REGISTER_REQUEST });
 
-    const config = { header: { "Content-Type": "multipart/form-data" }, withCredentials: true, };
+    const config = { header: { "Content-Type": "multipart/form-data" }, withCredentials: true,credentials:"include" };
 
     const { data } = await axios.post(`${backedurl}/api/v1/register` , userData, config);
 
