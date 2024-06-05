@@ -5,13 +5,16 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
 import dotenv from 'dotenv';
- 
+import { fileURLToPath } from "url";
+import path from "path";
 import cors from "cors";
 import session from 'express-session';
 import RedisStore from 'connect-redis';
 import { createClient } from 'redis';
 
- 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // Redis client setup
 const redisClient = createClient({
   url: process.env.REDIS_URL,
