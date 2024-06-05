@@ -32,7 +32,7 @@ import {
 } from "../constants/ProductContants.js";
 
 const backedurl = "https://mern-stack-ecommerce-bh7z.onrender.com"
-export const getProduct = (keyword='',currentPage = 1 , price=[0,250000],category,ratings=0) => async (dispatch) => {
+export const getProduct = (keyword='',currentPage = 1 , price=[0,150000],category,ratings=0) => async (dispatch) => {
   try {
     let link  = `${backedurl}/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings} ` ;
     if(category){
