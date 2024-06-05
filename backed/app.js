@@ -15,11 +15,7 @@ import { createClient } from 'redis';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Redis client setup
-const redisClient = createClient({
-  url: process.env.REDIS_URL,
-});
-redisClient.connect().catch(console.error);
+ 
 
 //  Config ==>
 if (process.env.NODE_ENV !== 'PRODUCTION') {
@@ -37,20 +33,7 @@ app.use(cors({
     credentials: true,
 }));
 
-// Session setup
-app.use(session({
-    store: new RedisStore({ client: redisClient }),
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production', // प्रोडक्शन में true
-        sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
-        maxAge: 1000 * 60 * 60 * 24 * 7 // 7 दिन के लिए सत्र कुकी सेट करें
-    }
-}));
-
+ 
 // Route Import 
 import product from "./routes/productRoute.js";
 import userRoute from "./routes/userRoute.js";
