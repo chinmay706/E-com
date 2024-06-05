@@ -11,9 +11,18 @@ import cors from "cors";
 import session from 'express-session';
 import RedisStore from 'connect-redis';
 import { createClient } from 'redis';
+ 
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const client = createClient({
+    password: process.env.REDIES_PASSWORD,
+    socket: {
+        host: process.env.REDIES_HOST,
+        port: process.env.REDIES_PORT
+    }
+});
+
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
  
 
@@ -32,7 +41,19 @@ app.use(cors({
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 }));
-
+app.use(session({
+    store: new RedisStore({ client: client }),
+    secret: process.env.JWT_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production', 
+        sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
+        maxAge: 1000 * 60 * 60 * 24 * 7, 
+        domain:"mern-stack-eccomerce-suresh.netlify.app"
+    }
+}));
  
 // Route Import 
 import product from "./routes/productRoute.js";
