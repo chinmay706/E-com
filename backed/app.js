@@ -5,8 +5,7 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
 import dotenv from 'dotenv';
-import { fileURLToPath } from "url";
-import path from "path";
+ 
 import cors from "cors";
 import session from 'express-session';
 import RedisStore from 'connect-redis';
@@ -21,8 +20,7 @@ const client = createClient({
     }
 });
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
+ 
 
  
 
@@ -49,7 +47,7 @@ app.use(session({
     cookie: {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production', 
-        sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
+        sameSite:   'None'  ,
         maxAge: 1000 * 60 * 60 * 24 * 7, 
         domain:".netlify.app"
     }
