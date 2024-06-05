@@ -24,15 +24,10 @@ app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(fileUpload())
 app.use(cors({
-    origin: 'https://mern-stack-eccomerce-suresh.netlify.app',
+    origin: 'https://mern-stack-eccomerce-suresh.netlify.app', // Your frontend URL
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true  
+    credentials: true,
 }));
-// app.use(cors({
-//     origin: ' http://localhost:3000',
-//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//     credentials: true  
-// }));
   
 // Route Import 
 import product from "./routes/productRoute.js";

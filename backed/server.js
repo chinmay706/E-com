@@ -32,9 +32,6 @@ cloudinary.config({
 
  
  
-
-app.options('*', cors());
-
  
 
 // Start the Server

@@ -43,7 +43,7 @@ export const getProduct = (keyword='',currentPage = 1 , price=[0,250000],categor
     dispatch({ type: ALL_PRODUCT_REQUEST });
     
 
-    const { data } = await axios.get(link);
+    const { data } = await axios.get(link,{  withCredentials: true, });
      
     
 
