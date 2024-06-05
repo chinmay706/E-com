@@ -51,7 +51,7 @@ app.use(session({
         secure: process.env.NODE_ENV === 'production', 
         sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
         maxAge: 1000 * 60 * 60 * 24 * 7, 
-        domain:"mern-stack-eccomerce-suresh.netlify.app"
+        domain:".netlify.app"
     }
 }));
  
