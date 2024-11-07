@@ -1,6 +1,6 @@
 # MERN E-COMMERCE TUTORIAL
 
-Hi! My name is **Suresh Kumar**,  
+Hi! My name is **Chinmay Oli**,  
 
  
 
