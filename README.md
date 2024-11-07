@@ -32,9 +32,5 @@ CLOUDINARY_API_KEY
 CLOUDINARY_API_SECRET
 _fill each filed with your info respectively_
 
-## Author
 
-**Instagram** Click [Here](https://www.instagram.com/mr.nyol_007) **@mr.nyol_007**
- **Programmer**
-**LinkedIn** Click [Here](https://in.linkedin.com/in/suresh-kumar-337372270) **@sureshkumar**
  
